@@ -1,0 +1,62 @@
+.blog-post-container{
+    max-width: 800px;
+    margin: 40px auto;
+    background-color: rgb(237, 238, 238);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    color: #333;
+}
+
+form{
+    padding-bottom: 5px;
+}
+.title {
+ text-align: center;
+ color: #333;
+}
+
+.author-info ul{
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap:10px;
+    padding:0;
+    
+}
+
+.author-item{
+    display: flex;
+    flex-direction: column;
+    gap:5px;
+}
+
+.gallery{
+    display: flex;
+    flex-wrap: wrap;
+    gap:15px;
+   
+}
+
+.tags{
+    margin:5px;
+    margin-top:15px;
+}
+
+.tag-button{
+    background-color: rgb(147, 147, 225);
+    padding:5px;
+    color:white;
+    border-radius: 5px;
+    
+}
+
+.tag-button:hover{
+    background-color:rgb(125, 125, 192);
+    text-decoration: none;
+}
+
+.return{
+    padding:5px;
+    font-weight: 700;
+}

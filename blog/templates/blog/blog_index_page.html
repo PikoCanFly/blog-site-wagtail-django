@@ -1,0 +1,41 @@
+{% extends "base.html" %} {% load static wagtailcore_tags wagtailimages_tags %} {%block extra_css%}
+<link
+	rel="stylesheet"
+	type="text/css"
+	href='{% static "css/blog_index_page.css" %}'
+/>
+{%endblock%} {% block content %}
+
+<div class="container">
+
+	<h1 class="blog-title">{{ page.title}}</h1>
+    <div class="description">
+	{{page.description|richtext}}
+    </div>
+    <form action="{% url 'search' %}" method="get">
+        <input type="text" name="query"{% if search_query %} value="{{ search_query }}"{% endif %}>
+        <input type="submit" value="Search" class="button">
+    </form>
+    {% for post in blogposts %}
+	
+    <div class="blog-post">
+        <h2>
+		<a href="{% pageurl post %}">{{post.title}}</a>
+        </h2>
+        <div class="post-info">
+        {% with thumbnail_image=post.specific.main_image%}
+        {% if thumbnail_image %}
+        <div class="thumbnail-image">
+            {% image thumbnail_image fill-300x200 %}
+        </div>
+        {% endif %}
+        {%endwith%}
+        <div class="post-info">
+            {{post.specific.intro|richtext}}
+        </div>
+    </div>
+	</div>
+	
+    {%endfor%}
+</div>
+{% endblock %}

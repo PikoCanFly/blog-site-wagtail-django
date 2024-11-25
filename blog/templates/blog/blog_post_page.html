@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% load static wagtailcore_tags wagtailimages_tags %}
+{%block extra_css%}
+<link rel="stylesheet" type="text/css" href="{% static 'css/blog_post_page.css' %}">
+{%endblock%}
+
+{% block content %}
+
+<div class="blog-post-container">
+    <h1 class="title">{{page.title}}</h1>
+
+
+{% with authors=page.authors.all %}
+
+{% if authors %}
+
+<div class="author-info">
+    <p><strong>Written by:</strong></p>
+    <ul>
+        {% for author in authors %}
+        <li class="author-item">
+            {% image author.author_image fill-60x60 %}
+            <span>{{ author.name }}</span>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+<p class="date">Published on: {{ page.date }}</p>
+
+<div class="intro">
+    {{page.intro|richtext}}
+</div>
+
+<div class="body">
+    {{page.body|richtext}}
+</div>
+
+{%endif%}
+
+{% endwith %}
+
+{% with images=page.image_gallery.all %}
+{% if images%}
+<div class="gallery">
+    {% for image in images %}
+    <div class="gallery-item">
+        {% image image.image fill-340x340%}
+        {% comment %} <p>{{image.caption}}</p> {% endcomment %}
+    </div>
+
+    {% endfor %}
+</div>
+{% endif %}
+{% endwith %}
+
+<a class="return" href='{{page.get_parent.url}}'>Return to blog</a>
+<br/>
+{% with tags=page.tags.all%}
+{% if tags %}
+<div class="tags">
+    {% for tag in tags %}
+    <a class="tag-button" href='{% slugurl "tags" %}?tag={{tag}}'>{{tag}}</a>
+    {%endfor%}
+</div>
+{% endif %}
+{%endwith%}
+</div>
+{% endblock %}
