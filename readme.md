@@ -2,9 +2,9 @@
 
 
 
-This repository contains the code for building a feature-rich blog using **Django** and **Wagtail CMS**. The tutorial walks you through all the steps required to create a dynamic and customizable blog platform, with advanced features like tagging, image galleries, author management, search functionality, and a user-friendly admin interface.
+This repository contains the code for building a feature-rich blog using **Django** and **Wagtail CMS**. As seen [on my youtube channel](https://youtu.be/xzdPGUDBslk).
 
-## Tutorial Video
+
 
 Watch the step-by-step tutorial video:
 
